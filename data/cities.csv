@@ -1,0 +1,26 @@
+city,state,region,population,climate,cost_of_living_index,median_rent_1br,median_household_income,top_industries,walkability_score,nightlife_score,outdoors_score,diversity_score,safety_index,avg_commute_min
+New York,NY,Northeast,8258000,four_season,187,3500,76607,"finance;media;tech;fashion",9,10,4,10,5,33
+Los Angeles,CA,West,3820000,mild,173,2400,76135,"entertainment;tech;trade;aerospace",6,8,7,9,5,30
+Chicago,IL,Midwest,2665000,four_season,107,1900,71673,"finance;manufacturing;tech;logistics",8,9,5,9,4,34
+Houston,TX,South,2314000,hot,95,1400,56895,"energy;healthcare;aerospace;trade",4,6,4,9,4,28
+Phoenix,AZ,West,1650000,hot,104,1500,65574,"healthcare;tech;manufacturing;tourism",4,5,7,7,5,26
+Philadelphia,PA,Northeast,1550000,four_season,107,1600,58154,"healthcare;education;finance;biotech",7,7,4,8,4,32
+San Antonio,TX,South,1472000,hot,88,1150,56797,"military;healthcare;tourism;manufacturing",3,4,5,8,5,25
+San Diego,CA,West,1382000,mild,159,2300,91431,"biotech;military;tourism;tech",5,6,8,8,6,24
+Dallas,TX,South,1288000,hot,99,1400,59434,"finance;tech;telecom;trade",4,7,4,8,4,27
+Jacksonville,FL,South,985000,hot,93,1400,58621,"finance;logistics;healthcare;military",3,4,6,7,5,26
+Austin,TX,South,980000,hot,109,1500,86541,"tech;music;education;government",5,8,6,7,6,25
+Fort Worth,TX,South,956000,hot,93,1300,68034,"aerospace;logistics;energy;manufacturing",3,4,5,7,5,26
+San Jose,CA,West,972000,mild,184,2600,126094,"tech;semiconductors",4,4,6,9,7,28
+Columbus,OH,Midwest,913000,four_season,92,1200,62994,"insurance;tech;logistics;education",5,6,4,7,6,22
+Charlotte,NC,South,897000,four_season,101,1500,70588,"finance;energy;tech",4,6,5,7,6,25
+Indianapolis,IN,Midwest,882000,four_season,88,1100,54280,"logistics;manufacturing;healthcare;motorsports",4,5,4,7,5,24
+San Francisco,CA,West,808000,mild,194,3100,126187,"tech;finance;biotech",9,8,7,8,5,30
+Seattle,WA,West,738000,mild,155,2000,110781,"tech;aerospace;retail;healthcare",8,7,8,7,6,27
+Denver,CO,West,715000,four_season,124,1800,87948,"tech;energy;aerospace;healthcare",6,7,9,7,6,25
+Oklahoma City,OK,South,687000,four_season,85,1000,58240,"energy;aerospace;government;agriculture",3,4,4,6,6,20
+Nashville,TN,South,684000,hot,105,1600,67656,"music;healthcare;finance;tourism",4,8,5,7,6,25
+El Paso,TX,South,679000,hot,84,950,53438,"trade;military;manufacturing;logistics",3,3,5,8,6,22
+Washington,DC,Northeast,671000,four_season,152,2300,101722,"government;law;nonprofit;tech",8,7,5,8,5,30
+Boston,MA,Northeast,653000,four_season,169,2700,89212,"education;healthcare;biotech;finance",9,7,5,7,6,30
+Las Vegas,NV,West,641000,hot,100,1400,61999,"tourism;hospitality;entertainment;logistics",4,9,6,8,5,24
