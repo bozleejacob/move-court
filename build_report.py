@@ -51,7 +51,7 @@ html = f"""<!DOCTYPE html>
 <p class="meta">
   An AI agent panel that decides where you should move after school.<br>
   Author: Jake Bozlee &middot; MGT 409, Fall 2026<br>
-  Repo: <a href="#">github.com/&lt;your-username&gt;/move-court</a> (add link before submitting)<br>
+  Repo: <a href="https://github.com/bozleejacob/move-court">github.com/bozleejacob/move-court</a><br>
   One-sentence description: Eight AI agents cross-examine the 25 largest US cities against your real priorities -- and the people who disagree with them -- to render a verdict on where you should move.
 </p>
 
