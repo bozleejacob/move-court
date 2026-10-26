@@ -46,6 +46,7 @@ html = f"""<!DOCTYPE html>
   <h1>Move Court</h1>
   <h3>An AI agent panel decides where you should move after school</h3>
   <p class="small">Jake Bozlee &middot; MGT 409, Fall 2026</p>
+  <p class="small">Repo: <a href="https://github.com/bozleejacob/move-court" style="color:#f2a65a;">github.com/bozleejacob/move-court</a> (public)</p>
 </section>
 
 <section>
