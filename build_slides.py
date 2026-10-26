@@ -11,10 +11,11 @@ def b64(name):
     return "data:image/jpeg;base64," + base64.b64encode(data).decode()
 
 
-IMG_START = b64("screenshot-start.jpg")
-IMG_VERDICT = b64("screenshot-verdict.jpg")
-IMG_SAFETY = b64("screenshot-safety-defense.jpg")
-IMG_TOKENOMICS = b64("screenshot-tokenomics.jpg")
+IMG_START = b64("v2-start.jpg")
+IMG_STEP4 = b64("v2-step4.jpg")
+IMG_VERDICT = b64("v2-verdict.jpg")
+IMG_SAFETY = b64("v2-safety-defense.jpg")
+IMG_TOKENOMICS = b64("v2-tokenomics.jpg")
 
 reveal_css = (TMP / "reveal.css").read_text(encoding="utf-8")
 theme_css = (TMP / "theme.css").read_text(encoding="utf-8")
@@ -61,10 +62,11 @@ html = f"""<!DOCTYPE html>
   <ul>
     <li>Niche / Livability: generic, unweighted category scores</li>
     <li>Teleport / Numbeo: raw data, no reasoning</li>
-    <li>Generic chatbot: no structure, no dataset, no conflict detection</li>
+    <li>Generic chatbot: no structure, no dataset, no visible reasoning</li>
   </ul>
-  <p><strong>Move Court</strong> interviews you, surfaces conflicts with people
-  in your life, and makes the outcome concrete with a Future You narrative.</p>
+  <p><strong>Move Court</strong> interviews you, shares context between agents,
+  shows you each agent's live reasoning, surfaces conflicts with people in your
+  life, and makes the outcome concrete with a Future You narrative.</p>
 </section>
 
 <section>
@@ -76,7 +78,8 @@ html = f"""<!DOCTYPE html>
     <div class="agent-pill">Family &amp; Friends</div>
     <div class="agent-pill">Climate</div>
   </div>
-  <p class="small">&#8595; weighted aggregation (code, not LLM) &#8595;</p>
+  <p class="small">each fires the instant its question is answered, sees prior
+  answers, scores all 25 cities &#8595; weighted aggregation (code, not LLM) &#8595;</p>
   <div class="agent-row">
     <div class="agent-pill">Conflict Agent</div>
     <div class="agent-pill">Future You Agent</div>
@@ -88,8 +91,13 @@ html = f"""<!DOCTYPE html>
 </section>
 
 <section>
-  <h2>Demo</h2>
+  <h2>Demo: live agent panel</h2>
   <img src="{IMG_START}" style="height:480px;">
+</section>
+
+<section>
+  <h2>Demo: agents thinking as you go</h2>
+  <img src="{IMG_STEP4}" style="height:480px;">
 </section>
 
 <section>
@@ -102,9 +110,9 @@ html = f"""<!DOCTYPE html>
   <table>
     <tr><th>Metric</th><th>Value</th></tr>
     <tr><td>Calls per run</td><td>8</td></tr>
-    <tr><td>Input / output tokens</td><td>7,533 / 6,419</td></tr>
-    <tr><td>Cost per run (assumed pricing)</td><td>&asymp; $0.005</td></tr>
-    <tr><td>At 10,000 users/month</td><td>&asymp; $100/month</td></tr>
+    <tr><td>Input / output tokens</td><td>7,964 / 5,553</td></tr>
+    <tr><td>Cost per run (assumed pricing)</td><td>&asymp; $0.0045</td></tr>
+    <tr><td>At 10,000 users/month</td><td>&asymp; $90/month</td></tr>
   </table>
   <p class="small">Pricing assumed at GPT-4o-mini-class rates; course's gpt-6-luna
   proxy pricing not publicly exposed.</p>
@@ -113,8 +121,8 @@ html = f"""<!DOCTYPE html>
 <section>
   <h2>Safety: a real defense, shown working</h2>
   <p class="small">A prompt-injection test tripped the provider's own content
-  filter and crashed the first version of the app. Every call is now wrapped
-  to fail gracefully instead:</p>
+  filter and crashed the first version of the app. It later tripped on fully
+  benign text too. Every call now fails gracefully instead:</p>
   <img src="{IMG_SAFETY}" style="height:400px;">
 </section>
 
@@ -125,7 +133,7 @@ html = f"""<!DOCTYPE html>
   not yet done given the project timeline.</p>
   <p class="small">Unaided process took ~30-45 min across 3 sites with no
   explicit conflict reconciliation. Move Court: under 3 minutes, names the
-  conflict directly.</p>
+  conflict directly, with live reasoning visible throughout.</p>
 </section>
 
 <section>

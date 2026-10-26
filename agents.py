@@ -80,22 +80,36 @@ def _safe_json(text, fallback):
         return fallback
 
 
-def score_dimension(spec, user_answer, tracker):
+def _spec_name(key):
+    return next((s["name"] for s in SPECIALISTS if s["key"] == key), key)
+
+
+def score_dimension(spec, user_answer, tracker, prior_answers=None):
     city_table = CITIES.to_csv(index=False)
     system_prompt = (
         f"You are the {spec['name']} on a panel that scores US cities for someone "
         "deciding where to move after school. Score ONLY the dimension you own: "
-        f"{spec['key']}. Use the provided city dataset as your facts -- do not "
-        "invent statistics. Return strict JSON only: "
-        '{"city_name": {"score": 1-10, "reason": "one short sentence"}, ...} '
-        "for every city in the dataset."
+        f"{spec['key']}. You may use what the person told other agents on the panel "
+        "as context for your own scoring (e.g. their career answer can inform how you "
+        "weigh cost of living), but your score and reason must still be about your own "
+        "dimension. Use the provided city dataset as your facts -- do not invent "
+        "statistics. Keep each reason under 12 words -- you must return all 25 cities, "
+        "so brevity matters more than detail. Return strict JSON only: "
+        '{"city_name": {"score": 1-10, "reason": "under 12 words"}, ...} '
+        "for every city in the dataset, and nothing after the closing brace."
     )
+    context_lines = [f"User's answer to your question: {user_answer}"]
+    if prior_answers:
+        context_lines.append("What the user already told other agents on the panel:")
+        for key, ans in prior_answers.items():
+            if ans:
+                context_lines.append(f"- {_spec_name(key)}: {ans}")
     user_prompt = (
         f"City dataset (csv):\n{city_table}\n\n"
-        + _UNTRUSTED_WRAP.format(text=f"User's answer to your question: {user_answer}")
+        + _UNTRUSTED_WRAP.format(text="\n".join(context_lines))
     )
     try:
-        text = _call(f"score:{spec['key']}", system_prompt, user_prompt, tracker, max_tokens=1600)
+        text = _call(f"score:{spec['key']}", system_prompt, user_prompt, tracker, max_tokens=2400)
     except BlockedCall:
         return {}
     return _safe_json(text, {})
