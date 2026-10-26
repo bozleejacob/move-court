@@ -58,7 +58,7 @@ html = f"""<!DOCTYPE html>
 
 <h2>1. Motivation</h2>
 <p>
-  Every graduating senior faces the same high-stakes, low-information decision: which city
+  Every graduating student faces the same high-stakes, low-information decision: which city
   to move to. It is a decision most people make once or twice in their life, with almost no
   practice, under pressure from parents, partners, and friends who often want different
   things for them than they want for themselves. Existing tools do not help much with the
@@ -297,7 +297,7 @@ policy...', 'code': 'content_filter'}}}}</code>
   an explicit, named conflict rather than something left implicit, while also letting the user
   watch each agent's reasoning build up live instead of receiving an opaque final answer.
 </p>
-<p><strong>Next step for real evidence:</strong> have 2-3 graduating seniors actually weighing a
+<p><strong>Next step for real evidence:</strong> have 2-3 graduating students actually weighing a
   move run the tool on their real decision, and record whether the Conflict Agent's output
   changed how they talked to their family about it -- the single most differentiating claim
   this project makes.</p>
